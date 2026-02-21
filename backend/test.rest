@@ -1,0 +1,117 @@
+### Register a new user
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "mypassword123"
+}
+### Login User
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "john@example.com",
+  "password": "mypassword123"
+}
+
+### login with no pass
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "john@example.com"
+  
+}
+
+###login with wrong credential
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "john@example.com",
+  "password": "myp"
+}
+
+### register check
+POST  http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Alice Smith",
+    "email": "alice@example.com",
+    "password": "alicepassword123"
+}
+
+
+### checking create project api
+POST http://localhost:5000/api/projects
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTU4ZWY3YjdhYzExYzUzMjNlM2Q4NGUiLCJpYXQiOjE3NjgzODY5MzAsImV4cCI6MTc2ODk5MTczMH0.yKGKAH-ZsESkAJWZtUaPLolTT508ApDIIqHV31Gs8gY
+
+{
+  "name": "E-commerce Website",
+  "description": "Build an online store for fashion products"
+}
+
+### checking the get req of projects
+GET http://localhost:5000/api/projects
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTU4ZWY3YjdhYzExYzUzMjNlM2Q4NGUiLCJpYXQiOjE3NjgxMTY3OTIsImV4cCI6MTc2ODcyMTU5Mn0.nBIFNyRuspGBvLHeyedSLhEQGCBeOOjcPIXW3UNjilg
+
+
+### update project req
+PUT http://localhost:5000/api/projects/69622de96846a1eba063f0b0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTU4ZWY3YjdhYzExYzUzMjNlM2Q4NGUiLCJpYXQiOjE3NjgxMzYzMzIsImV4cCI6MTc2ODc0MTEzMn0.4AKe0b5zKActCrZudrbijSCyZCexfvATNnct961Pfr4
+
+{
+  "name": "Updated Project Name",
+  "description": "New description"
+}
+
+### Delete project (your own)
+DELETE http://localhost:5000/api/projects/69622de96846a1eba063f0b0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTU4ZWY3YjdhYzExYzUzMjNlM2Q4NGUiLCJpYXQiOjE3NjgyMjY0NjYsImV4cCI6MTc2ODgzMTI2Nn0.zm8Rxdz3JK0h8IeeH9UES0yXZXRk5fdU0hDyTnobAgg
+
+### Delete project (invalid project)
+DELETE http://localhost:5000/api/projects/69622de96846a1eba093f0b0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTU4ZWY3YjdhYzExYzUzMjNlM2Q4NGUiLCJpYXQiOjE3NjgyMjY0NjYsImV4cCI6MTc2ODgzMTI2Nn0.zm8Rxdz3JK0h8IeeH9UES0yXZXRk5fdU0hDyTnobAgg
+
+
+### create task endpoint
+POST http://localhost:5000/api/tasks
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTU4ZWY3YjdhYzExYzUzMjNlM2Q4NGUiLCJpYXQiOjE3NjgzODY5MzAsImV4cCI6MTc2ODk5MTczMH0.yKGKAH-ZsESkAJWZtUaPLolTT508ApDIIqHV31Gs8gY
+Content-Type: application/json
+
+{
+  "title": "Design Homepage",
+  "description": "Create high-fidelity mockup",
+  "projectId": "696771850411542100835d6d",
+  
+  "priority": "high",
+  "deadline": "2026-01-15"
+}
+
+### get tasks for a project
+GET http://localhost:5000/api/tasks/project/696771850411542100835d6d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTU4ZWY3YjdhYzExYzUzMjNlM2Q4NGUiLCJpYXQiOjE3Njg0ODk1MTQsImV4cCI6MTc2OTA5NDMxNH0.i_APIgwhkhd3tIh0DBqq-FYpET06x7b7cVjGotJd0sM
+
+
+### updating the task endpoint
+PUT http://localhost:5000/api/tasks/6967737115e020f71c6c2ba8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTU4ZWY3YjdhYzExYzUzMjNlM2Q4NGUiLCJpYXQiOjE3Njg0ODk1MTQsImV4cCI6MTc2OTA5NDMxNH0.i_APIgwhkhd3tIh0DBqq-FYpET06x7b7cVjGotJd0sM
+Content-Type: application/json
+
+{
+  "title": "new title",
+  "status": "in_progress",
+  "priority": "medium"
+}
+
+### deleting the task in a project
+DELETE http://localhost:5000/api/tasks/6967737115e020f71c6c2ba8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTU4ZWY3YjdhYzExYzUzMjNlM2Q4NGUiLCJpYXQiOjE3Njg0ODk1MTQsImV4cCI6MTc2OTA5NDMxNH0.i_APIgwhkhd3tIh0DBqq-FYpET06x7b7cVjGotJd0sM
